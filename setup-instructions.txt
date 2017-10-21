@@ -1,0 +1,50 @@
+To setup this tutorial 
+1.) make a c9 php mysql workspace
+2.) download codeigniter 3.1.5 from codeigniter.com 
+3.) extract and transfer all the codeigniter files to the c9 workspace 
+4.) Install php my admin using the instructions here: 
+https://community.c9.io/t/setting-up-phpmyadmin/1723
+that means basically just run in your terminal: 
+phpmyadmin-ctl install 
+& 
+mysql-ctl start 
+then you can access phpmyadmin at your the URL for your workspace/phpmyadmin 
+codeigniter-tutorial-msrinteractive.c9users.io/phpmyadmin [our example]
+5.) in application folder / config / database.php 
+add your c9 username to the database config where it says 'username'
+and add 'c9' as the database
+the password should be left blank by default, unless you have changed your mySQL password
+6.) Create a .htaccess file in the root of your project with the following contents 
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/(index\.php|images|img|assets|newdesign[^/]*|cache[^/]*)$
+RewriteRule ^(.*)$ index.php?/$1 [L]
+
+7.) in your config folder / config.php  
+on line 38 - to an empty string 
+$config['index_page'] = '';
+and 
+on line 26 to our base URL 
+$config['base_url'] = 'https://codeigniter-tutorial-msrinteractive.c9users.io/';
+Once you've added this line, add 
+$this->load->helper('url');
+to your MY_Controller constructor method. That will load the helper so that you can use site_url() to echo the site url. 
+
+8.) Get the 'MY_MODEL' code igniter library from https://github.com/avenirer/CodeIgniter-MY_Model/blob/version-3.0/core/MY_Model.php 
+(shortcut library for the model)
+Copy the MY_Model.php file to your application/core folder 
+
+9.) Create a My_Controller class inside a file called 'MY_Controller.php' in your core folder. 
+(This acts as a main controller that will have global scope, so we can write methods here that can be called from our other controllers)
+
+10.) You're ready to begin. 
+
+
+
+OPTIONAL
+
+You may grab the boilerplate code from https://github.com/msrinteractive/Boilerplate-a-mundo
+Save it all to an assets folder outside of the application, and then map the css and js links to your assets folder 
+<?php echo site_url('assets/'); ?> like that 

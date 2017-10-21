@@ -1,0 +1,7 @@
+body {
+    background-color: #EEE;
+    color: #111;
+}
+.delete{
+    cursor: pointer;
+}

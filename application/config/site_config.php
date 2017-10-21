@@ -1,0 +1,7 @@
+<?php
+
+
+define('SITE_TITLE', 'YOUR TITLE');
+define('META_DESC', 'YOUR META DESCRIPTION');
+define('META_AUTHOR', 'YOUR META AUTHOR');
+define('META_KEYWORDS', 'YOUR META KEYWORDS');
