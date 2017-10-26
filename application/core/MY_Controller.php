@@ -24,8 +24,8 @@
         return $mustache->render($output, $data);
     }
 
-    public function content($view, $data, $mustache){
-        if($mustache == true){
+    public function content($view, $data = false, $template_yn = false){
+        if($template_yn == true){
             $first = $this->load->view('includes/header', false, true);
             $second = $this->return_mustache($view, $data);
             $third = $this->load->view('includes/footer', false, true);
