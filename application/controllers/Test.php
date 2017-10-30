@@ -30,5 +30,13 @@ class Test extends My_Controller { // the MY_Controller in the core folder is a 
 
     }
 
+    public function testMvvm(){
+
+        $this->data['mvvm'] =  $this->mvvm_new_record('customers', 'object');
+
+        $this->content('test', $this->data, true);
+
+    }
+
 
 }
